@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "3a2b9692-99aa-4348-98c4-3a7bd0507f1f",
+		"name": "cars REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"model\": \"fiesta\",\r\n\t\"make\": \"ford\",\r\n\t\"colour\": \"aquamaroon\",\r\n\t\"year\": 2041\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"model\": \"fiesta\",\n\t\"make\": \"ford\",\n\t\"colour\": \"red\",\n\t\"year\": 2042\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"notproductionready\",\n\t\"password\": \"notproductionready\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f9d3d769-36ef-420b-ae1e-46c4ca1ad60f",
+				"type": "text/javascript",
+				"exec": [
+					"pm.sendRequest({",
+					"    url: 'http://localhost:3000/api/auth/token',",
+					"    method: 'POST',",
+					"    header: {",
+					"        'content-type': 'application/json'",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({ username: 'notproductionready', password: 'notproductionready' })",
+					"    }",
+					"}, (err, res) => pm.collectionVariables.set(\"TOKEN\", res.json().token))"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "251dc5d6-e2fd-4382-86ff-03fc7851a4fc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3fc4d1a3-e542-4616-acff-123e328983a2",
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkdW1teSIsImlhdCI6MTU5NjE4ODc3NCwiZXhwIjoxNTk2MTkyMzc0fQ.-ZjTfAk44CmlcM7k65XaDDDUaePaJ-cz_W0HKdUX5gQ"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

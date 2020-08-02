@@ -1,0 +1,46 @@
+{
+  "name": "cars-rest-api",
+  "version": "0.0.1",
+  "description": "cars api",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test",
+      "pre-commit": "npm run lint"
+    }
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "tap --100 test/**/*.test.js",
+    "start": "fastify start -l info app.js",
+    "dev": "fastify start -l info -P app.js",
+    "run-migrations": "knex migrate:latest",
+    "seed-test-data": "knex seed:run",
+    "lint": "standard --fix | snazzy"
+  },
+  "keywords": [],
+  "author": "Sam Adams <adams.sam@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fastify": "^3.1.1",
+    "fastify-autoload": "^3.0.6",
+    "fastify-cli": "^2.0.2",
+    "fastify-cors": "^4.1.0",
+    "fastify-helmet": "^4.0.2",
+    "fastify-jwt": "^2.1.2",
+    "fastify-knexjs": "sadams/fastify-knexjs#master",
+    "fastify-plugin": "^2.0.3",
+    "knex": "^0.21.2",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.4",
+    "tap": "^14.10.8"
+  }
+}
