@@ -22,12 +22,12 @@
 					"raw": "{\r\n\t\"model\": \"fiesta\",\r\n\t\"make\": \"ford\",\r\n\t\"colour\": \"aquamaroon\",\r\n\t\"year\": 2041\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/cars",
+					"raw": "http://localhost:3001/api/cars",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"api",
 						"cars"
@@ -42,12 +42,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/cars/1",
+					"raw": "http://localhost:3001/api/cars/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"api",
 						"cars",
@@ -74,12 +74,12 @@
 					"raw": "{\n\t\"model\": \"fiesta\",\n\t\"make\": \"ford\",\n\t\"colour\": \"red\",\n\t\"year\": 2042\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/cars/1",
+					"raw": "http://localhost:3001/api/cars/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"api",
 						"cars",
@@ -99,12 +99,12 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/cars/1",
+					"raw": "http://localhost:3001/api/cars/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"api",
 						"cars",
@@ -120,12 +120,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/cars",
+					"raw": "http://localhost:3001/api/cars",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"api",
 						"cars"
@@ -154,12 +154,12 @@
 					"raw": "{\n\t\"username\": \"notproductionready\",\n\t\"password\": \"notproductionready\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/auth/token",
+					"raw": "http://localhost:3001/api/auth/token",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"api",
 						"auth",
@@ -188,7 +188,7 @@
 				"type": "text/javascript",
 				"exec": [
 					"pm.sendRequest({",
-					"    url: 'http://localhost:3000/api/auth/token',",
+					"    url: 'http://localhost:3001/api/auth/token',",
 					"    method: 'POST',",
 					"    header: {",
 					"        'content-type': 'application/json'",

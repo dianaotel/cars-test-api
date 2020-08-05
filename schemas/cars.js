@@ -8,7 +8,7 @@ const carMutationProperties = {
 }
 
 const carResponseProperties = {
-  id: { type: 'string' },
+  id: { type: 'integer' },
   ...carMutationProperties
 }
 
